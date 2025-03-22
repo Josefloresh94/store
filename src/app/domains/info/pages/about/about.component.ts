@@ -1,28 +1,24 @@
-
 import { Component, signal } from '@angular/core';
-
 import { CounterComponent } from '@shared/components/counter/counter.component';
 import { WaveAudioComponent } from '../../components/wave-audio/wave-audio.component';
-import { HighlightDirective } from '@shared/directives/highlight.directive';
-import { HeaderComponent } from "@shared/components/header/header.component";
 
 @Component({
-    selector: 'app-about',
-    templateUrl: './about.component.html',
-    styleUrl: './about.component.css',
-    imports: [CounterComponent, WaveAudioComponent, HighlightDirective, HeaderComponent]
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrl: './about.component.css',
+  imports: [CounterComponent, WaveAudioComponent],
 })
 export default class AboutComponent {
   duration = signal(1000);
   message = signal('Hola');
 
-  changeDuration(event: Event){
+  changeDuration(event: Event) {
     const input = event.target as HTMLInputElement;
-    this.duration.set(input.valueAsNumber)
+    this.duration.set(input.valueAsNumber);
   }
 
-  changeMessage(event: Event){
+  changeMessage(event: Event) {
     const input = event.target as HTMLInputElement;
-    this.message.set(input.value)
+    this.message.set(input.value);
   }
 }

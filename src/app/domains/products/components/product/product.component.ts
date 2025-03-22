@@ -1,22 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Product } from '../../../shared/models/product.model';
-import {ReversePipe} from '@shared/pipes/reverse.pipe'
 import { TimeAgoPipe } from '@shared/pipes/time-ago.pipe';
 import { RouterLinkWithHref } from '@angular/router';
 
 @Component({
-    selector: 'app-product',
-    imports: [CommonModule, ReversePipe, TimeAgoPipe, RouterLinkWithHref],
-    templateUrl: './product.component.html',
-    styleUrl: './product.component.css'
+  selector: 'app-product',
+  imports: [CommonModule, TimeAgoPipe, RouterLinkWithHref],
+  templateUrl: './product.component.html',
 })
 export class ProductComponent {
-	@Input({required: true}) product!: Product;
+  // @Input({ required: true }) product!: Product;
+  // @Output() addToCart = new EventEmitter();
+  readonly product = input.required<Product>();
+  readonly addToCart = output<Product>();
 
-	@Output() addToCart = new EventEmitter();
-
-	addToCartHandler(){
-		this.addToCart.emit(this.product);
-	}
+  addToCartHandler() {
+    this.addToCart.emit(this.product());
+  }
 }
