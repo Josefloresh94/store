@@ -10,11 +10,10 @@ import { Category } from '@shared/models/category.model';
 import { RouterLinkWithHref } from '@angular/router';
 
 @Component({
-	selector: 'app-list',
-	standalone: true,
-	imports: [ProductComponent, HeaderComponent, RouterLinkWithHref],
-	templateUrl: './list.component.html',
-	styleUrl: './list.component.css'
+    selector: 'app-list',
+    imports: [ProductComponent, HeaderComponent, RouterLinkWithHref],
+    templateUrl: './list.component.html',
+    styleUrl: './list.component.css'
 })
 export default class ListComponent {
 

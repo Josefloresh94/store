@@ -3,11 +3,10 @@ import { HeaderComponent } from '../header/header.component';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-layout',
-  standalone: true,
-  imports: [HeaderComponent, RouterModule],
-  templateUrl: './layout.component.html',
-  styleUrl: './layout.component.css'
+    selector: 'app-layout',
+    imports: [HeaderComponent, RouterModule],
+    templateUrl: './layout.component.html',
+    styleUrl: './layout.component.css'
 })
 export class LayoutComponent {
 
